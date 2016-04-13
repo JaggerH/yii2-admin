@@ -14,7 +14,7 @@ $this->registerJs("var _opts = {$opts};");
 $this->registerJs($this->render('_script.js'));
 ?>
 <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-5">
         <div class="form-group">
             <input id="inp-route" type="text" class="form-control"placeholder="<?=Yii::t('rbac-admin', 'New route(s)')?>">
         </div>
