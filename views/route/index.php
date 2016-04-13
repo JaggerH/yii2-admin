@@ -20,7 +20,7 @@ $this->registerJs($this->render('_script.js'));
         </div>
     </div>
     <div class="com-sm-3">
-        <button id="btn-new" class="btn btn-success" type="button">
+        <button id="btn-new" class="btn btn-primary" type="button">
             <?=Yii::t('rbac-admin', 'Add')?>
         </button>
     </div>
@@ -47,8 +47,8 @@ $this->registerJs($this->render('_script.js'));
     </div>
     <div class="col-sm-2 text-center">
         </br></br></br></br></br></br>
-        <a href="#" class="btn-icon btn-danger" data-action="assign"><i class="fa fa-angle-double-left"></i></a></br>
-        <a href="#" class="btn-icon btn-warning" data-action="remove"><i class="fa fa-angle-double-right"></i></a>
+        <a href="#" class="btn-icon btn-danger btn-assign" data-action="assign"><i class="fa fa-angle-double-right"></i></a></br>
+        <a href="#" class="btn-icon btn-warning btn-assign" data-action="remove"><i class="fa fa-angle-double-left"></i></a>
     </div>
     <div class="col-sm-5">
         <div class="row">
