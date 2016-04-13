@@ -1,12 +1,12 @@
 {
-    "name": "mdmsoft/yii2-admin",
+    "name": "jackh/yii2-admin",
     "description": "RBAC Auth manager for Yii2 ",
     "keywords": ["yii", "admin", "auth", "rbac"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/mdmsoft/yii2-admin/issues",
-        "source": "https://github.com/mdmsoft/yii2-admin"
+        "issues": "https://github.com/jackhsoft/yii2-admin/issues",
+        "source": "https://github.com/jackhsoft/yii2-admin"
     },
     "authors": [
         {
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mdm\\admin\\": ""
+            "jackh\\admin\\": ""
         }
     },
     "extra": {

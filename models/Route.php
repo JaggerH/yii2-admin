@@ -1,5 +1,5 @@
 <?php
-namespace mdm\admin\models;
+namespace jackh\admin\models;
 /**
  * Route
  *

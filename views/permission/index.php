@@ -5,7 +5,7 @@ use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $searchModel mdm\admin\models\AuthItemSearch */
+/* @var $searchModel jackh\admin\models\AuthItemSearch */
 
 $this->title = Yii::t('rbac-admin', 'Permissions');
 $this->params['breadcrumbs'][] = $this->title;

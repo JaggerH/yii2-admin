@@ -1,12 +1,12 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace jackh\admin\controllers;
 
 use Yii;
-use mdm\admin\components\Helper;
+use jackh\admin\components\Helper;
 use yii\caching\TagDependency;
-use mdm\admin\components\RouteRule;
-use mdm\admin\components\Configs;
+use jackh\admin\components\RouteRule;
+use jackh\admin\components\Configs;
 use yii\helpers\Inflector;
 use yii\helpers\VarDumper;
 use Exception;
@@ -19,7 +19,7 @@ use Exception;
  */
 class RouteController extends \yii\web\Controller
 {
-    const CACHE_TAG = 'mdm.admin.route';
+    const CACHE_TAG = 'jackh.admin.route';
 
     /**
      * Lists all Route models.

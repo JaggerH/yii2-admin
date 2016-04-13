@@ -1,9 +1,9 @@
 <?php
 
-namespace mdm\admin\models;
+namespace jackh\admin\models;
 
 use Yii;
-use mdm\admin\components\Configs;
+use jackh\admin\components\Configs;
 
 /**
  * This is the model class for table "menu".

@@ -1,13 +1,13 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace jackh\admin\controllers;
 
 use Yii;
-use mdm\admin\models\searchs\Assignment as AssignmentSearch;
+use jackh\admin\models\searchs\Assignment as AssignmentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use mdm\admin\components\Helper;
+use jackh\admin\components\Helper;
 
 /**
  * AssignmentController implements the CRUD actions for Assignment model.

@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\components;
+namespace jackh\admin\components;
 
 use Yii;
 use yii\caching\TagDependency;

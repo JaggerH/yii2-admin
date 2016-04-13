@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\components;
+namespace jackh\admin\components;
 
 use Yii;
 use yii\db\Connection;
@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
  * ~~~
  * return [
  *     
- *     'mdm.admin.configs' => [
+ *     'jackh.admin.configs' => [
  *         'db' => 'customDb',
  *         'menuTable' => 'admin_menu',
  *     ]
@@ -24,7 +24,7 @@ use yii\helpers\ArrayHelper;
  * or use [[\Yii::$container]]
  * 
  * ~~~
- * Yii::$container->set('mdm\admin\components\Configs',[
+ * Yii::$container->set('jackh\admin\components\Configs',[
  *     'db' => 'customDb',
  *     'menuTable' => 'admin_menu',
  * ]);
@@ -35,7 +35,7 @@ use yii\helpers\ArrayHelper;
  */
 class Configs extends \yii\base\Object
 {
-    const CACHE_TAG = 'mdm.admin';
+    const CACHE_TAG = 'jackh.admin';
     /**
      * @var Connection Database connection.
      */
@@ -95,7 +95,7 @@ class Configs extends \yii\base\Object
     public static function instance()
     {
         if (self::$_instance === null) {
-            $type = ArrayHelper::getValue(Yii::$app->params, 'mdm.admin.configs', []);
+            $type = ArrayHelper::getValue(Yii::$app->params, 'jackh.admin.configs', []);
             if (is_array($type) && !isset($type['class'])) {
                 $type['class'] = static::className();
             }

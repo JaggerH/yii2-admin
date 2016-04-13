@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use mdm\admin\components\RouteRule;
+use jackh\admin\components\RouteRule;
 
 /* @var $this yii\web\View */
-/* @var $model mdm\admin\models\AuthItem */
+/* @var $model jackh\admin\models\AuthItem */
 /* @var $form yii\widgets\ActiveForm */
 
 $rules = array_keys(Yii::$app->getAuthManager()->getRules());

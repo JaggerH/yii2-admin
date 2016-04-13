@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Message translations for \mdmsoft\yii2-admin.
+ * Message translations for \jackhsoft\yii2-admin.
  *
  * It contains the localizable messages extracted from source code.
  * You may modify this file by translating the extracted messages.

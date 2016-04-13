@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-/* @var $searchModel mdm\admin\models\searchs\Assignment */
+/* @var $searchModel jackh\admin\models\searchs\Assignment */
 /* @var $usernameField string */
 /* @var $extraColumns string[] */
 

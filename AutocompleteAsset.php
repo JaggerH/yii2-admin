@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin;
+namespace jackh\admin;
 
 /**
  * AutocompleteAsset
@@ -13,7 +13,7 @@ class AutocompleteAsset extends \yii\web\AssetBundle
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@mdm/admin/assets';
+    public $sourcePath = '@jackh/admin/assets';
 
     /**
      * @inheritdoc

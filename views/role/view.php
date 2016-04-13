@@ -6,7 +6,7 @@ use yii\helpers\Json;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $model mdm\admin\models\AuthItem */
+/* @var $model jackh\admin\models\AuthItem */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Roles'), 'url' => ['index']];
