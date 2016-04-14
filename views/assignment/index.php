@@ -63,8 +63,8 @@ use yii\widgets\ListView;
     'summary'      => '',
     'itemView'     => function ($model, $key, $index, $widget) {
         $widget->itemOptions = array_merge($widget->itemOptions, [
-            "data-url"        => Url::toRoute(['update', 'id' => $model->username]),
-            "data-delete-url" => Url::toRoute(['delete', 'id' => $model->username]),
+            "data-url"        => Url::toRoute(['view', 'id' => $key]),
+            "data-delete-url" => Url::toRoute(['delete', 'id' => $key]),
             "data-load"       => "#dashboard-content",
         ]);
         $title = Html::tag("p", Html::encode($model->username), ["class" => "title"]);

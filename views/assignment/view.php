@@ -1,7 +1,7 @@
 <?php
 
-use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
 
@@ -15,39 +15,54 @@ if (!empty($fullnameField)) {
 }
 $userName = Html::encode($userName);
 
-$this->title = Yii::t('rbac-admin', 'Assignment') . ' : ' . $userName;
-
-$this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Assignments'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $userName;
-
-
 $opts = Json::htmlEncode([
-        'assignUrl' => Url::to(['assign', 'id' => (string)$model->$idField]),
-        'items' => $items
-    ]);
+    'assignUrl' => Url::to(['assign', 'id' => (string) $model->$idField]),
+    'items'     => $items,
+]);
 $this->registerJs("var _opts = {$opts};");
 $this->registerJs($this->render('_script.js'));
 ?>
 <div class="assignment-index">
-    <h1><?= $this->title ?></h1>
+    <h3><?=$userName?></h3>
 
     <div class="row">
         <div class="col-sm-5">
-            <input class="form-control search" data-target="avaliable"
-                   placeholder="<?= Yii::t('rbac-admin', 'Search for avaliable') ?>">
-            <select multiple size="20" class="form-control list" data-target="avaliable">
-            </select>
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <input class="form-control search" data-target="avaliable" placeholder="<?=Yii::t('rbac-admin', 'Search for avaliable')?>">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <button id="btn-refresh" class="btn-icon btn-primary"><i class="fa fa-refresh"></i></button>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">unchoose route</h3>
+                </div>
+                <select multiple size="8" class="form-control list" data-target="avaliable" style="border: 0"></select>
+            </div>
         </div>
-        <div class="col-sm-1">
-            <br><br>
-            <a href="#" class="btn btn-success btn-assign" data-action="assign">&gt;&gt;</a><br>
-            <a href="#" class="btn btn-danger btn-assign" data-action="remove">&lt;&lt;</a>
+        <div class="col-sm-2 text-center">
+            </br></br></br></br></br></br>
+            <a href="#" class="btn-icon btn-danger btn-assign" data-action="assign"><i class="fa fa-angle-double-right"></i></a></br>
+            <a href="#" class="btn-icon btn-warning btn-assign" data-action="remove"><i class="fa fa-angle-double-left"></i></a>
         </div>
         <div class="col-sm-5">
-            <input class="form-control search" data-target="assigned"
-                   placeholder="<?= Yii::t('rbac-admin', 'Search for assigned') ?>">
-            <select multiple size="20" class="form-control list" data-target="assigned">
-            </select>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <input class="form-control search" data-target="assigned" placeholder="<?=Yii::t('rbac-admin', 'Search for assigned')?>" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">choosed route</h3>
+                </div>
+                <select multiple size="8" class="form-control list" data-target="assigned" style="border: 0"></select>
+            </div>
         </div>
     </div>
 </div>
