@@ -9,7 +9,7 @@ use yii\rbac\Item;
 
 /**
  * AuthItemSearch represents the model behind the search form about AuthItem.
- * 
+ *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
@@ -23,6 +23,7 @@ class AuthItem extends Model
     public $description;
     public $rule;
     public $data;
+    public $searched = false;
 
     /**
      * @inheritdoc
@@ -30,7 +31,7 @@ class AuthItem extends Model
     public function rules()
     {
         return [
-            [['name', 'description',], 'safe'],
+            [['name', 'description'], 'safe'],
             [['type'], 'integer'],
         ];
     }
@@ -41,12 +42,12 @@ class AuthItem extends Model
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('rbac-admin', 'Name'),
-            'item_name' => Yii::t('rbac-admin', 'Name'),
-            'type' => Yii::t('rbac-admin', 'Type'),
+            'name'        => Yii::t('rbac-admin', 'Name'),
+            'item_name'   => Yii::t('rbac-admin', 'Name'),
+            'type'        => Yii::t('rbac-admin', 'Type'),
             'description' => Yii::t('rbac-admin', 'Description'),
-            'ruleName' => Yii::t('rbac-admin', 'Rule Name'),
-            'data' => Yii::t('rbac-admin', 'Data'),
+            'ruleName'    => Yii::t('rbac-admin', 'Rule Name'),
+            'data'        => Yii::t('rbac-admin', 'Data'),
         ];
     }
 
@@ -79,10 +80,14 @@ class AuthItem extends Model
         }
         if ($this->load($params) && $this->validate() && (trim($this->name) !== '' || trim($this->description) !== '')) {
             $search = strtolower(trim($this->name));
-            $desc = strtolower(trim($this->description));
-            $items = array_filter($items, function ($item) use ($search, $desc) {
-                return (empty($search) || strpos(strtolower($item->name), $search) !== false) && ( empty($desc) || strpos(strtolower($item->description), $desc) !== false);
+            $desc   = strtolower(trim($this->description));
+            $items  = array_filter($items, function ($item) use ($search, $desc) {
+                return (empty($search) || strpos(strtolower($item->name), $search) !== false) && (empty($desc) || strpos(strtolower($item->description), $desc) !== false);
             });
+        }
+
+        if (!empty($params)) {
+            $this->searched = true;
         }
 
         return new ArrayDataProvider([

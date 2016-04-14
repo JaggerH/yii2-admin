@@ -2,13 +2,13 @@
 
 namespace jackh\admin\components;
 
-use Yii;
 use jackh\admin\models\AuthItem;
 use jackh\admin\models\searchs\AuthItem as AuthItemSearch;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use Yii;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
+use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 /**
  * AuthItemController implements the CRUD actions for AuthItem model.
@@ -27,7 +27,7 @@ class ItemController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -41,12 +41,12 @@ class ItemController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AuthItemSearch(['type' => $this->type]);
+        $searchModel  = new AuthItemSearch(['type' => $this->type]);
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'searchModel'  => $searchModel,
         ]);
     }
 
@@ -69,12 +69,21 @@ class ItemController extends Controller
      */
     public function actionCreate()
     {
-        $model = new AuthItem(null);
+        $model       = new AuthItem(null);
         $model->type = $this->type;
         if ($model->load(Yii::$app->getRequest()->post()) && $model->save()) {
             Helper::invalidate();
-
-            return $this->redirect(['view', 'id' => $model->name]);
+            return \Yii::createObject([
+                'class'  => 'yii\web\Response',
+                'format' => \yii\web\Response::FORMAT_JSON,
+                'data'   => [
+                    'message' => Yii::t('app', "Create Success!"),
+                    'code'    => 29999,
+                    'data'    => [
+                        'id' => $model->name,
+                    ],
+                ],
+            ]);
         } else {
             return $this->render('create', ['model' => $model]);
         }
@@ -92,7 +101,17 @@ class ItemController extends Controller
         if ($model->load(Yii::$app->getRequest()->post()) && $model->save()) {
             Helper::invalidate();
 
-            return $this->redirect(['view', 'id' => $model->name]);
+            return \Yii::createObject([
+                'class'  => 'yii\web\Response',
+                'format' => \yii\web\Response::FORMAT_JSON,
+                'data'   => [
+                    'message' => Yii::t('app', "Update Success!"),
+                    'code'    => 29999,
+                    'data'    => [
+                        'id' => $model->name,
+                    ],
+                ],
+            ]);
         }
 
         return $this->render('update', ['model' => $model]);
@@ -121,11 +140,11 @@ class ItemController extends Controller
      */
     public function actionAssign($id)
     {
-        $post = Yii::$app->getRequest()->post();
-        $action = $post['action'];
-        $roles = $post['roles'];
+        $post    = Yii::$app->getRequest()->post();
+        $action  = $post['action'];
+        $roles   = $post['roles'];
         $manager = Yii::$app->getAuthManager();
-        $parent = $this->type === Item::TYPE_ROLE ? $manager->getRole($id) : $manager->getPermission($id);
+        $parent  = $this->type === Item::TYPE_ROLE ? $manager->getRole($id) : $manager->getPermission($id);
 
         $error = [];
         if ($action == 'assign') {
@@ -159,13 +178,13 @@ class ItemController extends Controller
     }
 
     /**
-     * 
+     *
      * @param string $id
      * @return array
      */
     protected function getItems($id)
     {
-        $manager = Yii::$app->getAuthManager();
+        $manager   = Yii::$app->getAuthManager();
         $avaliable = [];
         if ($this->type === Item::TYPE_ROLE) {
             foreach (array_keys($manager->getRoles()) as $name) {
@@ -182,9 +201,9 @@ class ItemController extends Controller
             unset($avaliable[$item->name]);
         }
         unset($avaliable[$id]);
-        return[
+        return [
             'avaliable' => $avaliable,
-            'assigned' => $assigned
+            'assigned'  => $assigned,
         ];
     }
 
@@ -198,7 +217,7 @@ class ItemController extends Controller
     protected function findModel($id)
     {
         $item = $this->type === Item::TYPE_ROLE ? Yii::$app->getAuthManager()->getRole($id) :
-            Yii::$app->getAuthManager()->getPermission($id);
+        Yii::$app->getAuthManager()->getPermission($id);
         if ($item) {
             return new AuthItem($item);
         } else {

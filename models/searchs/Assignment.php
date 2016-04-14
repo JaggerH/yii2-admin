@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 
 /**
  * AssignmentSearch represents the model behind the search form about Assignment.
- * 
+ *
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
@@ -15,6 +15,7 @@ class Assignment extends Model
 {
     public $id;
     public $username;
+    public $searched = false;
 
     /**
      * @inheritdoc
@@ -32,9 +33,9 @@ class Assignment extends Model
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('rbac-admin', 'ID'),
-            'username' => Yii::t('rbac-admin', 'Username'),
-            'name' => Yii::t('rbac-admin', 'Name'),
+            'id'       => \Yii::t('rbac-admin', 'ID'),
+            'username' => \Yii::t('rbac-admin', 'Username'),
+            'name'     => \Yii::t('rbac-admin', 'Name'),
         ];
     }
 
@@ -47,10 +48,14 @@ class Assignment extends Model
      */
     public function search($params, $class, $usernameField)
     {
-        $query = $class::find();
+        $query        = $class::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        if (!empty($params)) {
+            $this->searched = true;
+        }
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
