@@ -96,7 +96,7 @@ class Module extends \yii\base\Module
         //user did not define the Navbar?
         if ($this->navbar === null) {
             $this->navbar = [
-                ['label' => Yii::t('rbac-admin', 'Help'), 'url' => 'https://github.com/jackhsoft/yii2-admin/blob/master/docs/guide/basic-usage.md'],
+                ['label' => Yii::t('rbac-admin', 'Help'), 'url' => 'https://github.com/jackh/yii2-admin/blob/master/docs/guide/basic-usage.md'],
                 ['label' => Yii::t('rbac-admin', 'Application'), 'url' => Yii::$app->homeUrl]
             ];
         }

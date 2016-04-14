@@ -2,23 +2,23 @@ RBAC Manager for Yii 2
 ======================
 GUI manager for RABC (Role Base Access Control) Yii2. Easy to manage authorization of user.
 
-[![Latest Stable Version](https://poser.pugx.org/jackhsoft/yii2-admin/v/stable.png)](https://packagist.org/packages/mdmsoft/yii2-admin)
-[![Total Downloads](https://poser.pugx.org/jackhsoft/yii2-admin/downloads.png)](https://packagist.org/packages/mdmsoft/yii2-admin)
-[![Reference Status](https://www.versioneye.com/php/jackhsoft:yii2-admin/reference_badge.svg)](https://www.versioneye.com/php/mdmsoft:yii2-admin/references)
-[![Dependency Status](https://www.versioneye.com/php/jackhsoft:yii2-admin/dev-master/badge.png)](https://www.versioneye.com/php/mdmsoft:yii2-admin/dev-master)
-[![HHVM Status](https://img.shields.io/hhvm/jackhsoft/yii2-admin.svg)](http://hhvm.h4cc.de/package/mdmsoft/yii2-admin)
-[![Code Climate](https://img.shields.io/codeclimate/github/jackhsoft/yii2-admin.svg)](https://codeclimate.com/github/mdmsoft/yii2-admin)
+[![Latest Stable Version](https://poser.pugx.org/jackh/yii2-admin/v/stable.png)](https://packagist.org/packages/mdmsoft/yii2-admin)
+[![Total Downloads](https://poser.pugx.org/jackh/yii2-admin/downloads.png)](https://packagist.org/packages/mdmsoft/yii2-admin)
+[![Reference Status](https://www.versioneye.com/php/jackh:yii2-admin/reference_badge.svg)](https://www.versioneye.com/php/mdmsoft:yii2-admin/references)
+[![Dependency Status](https://www.versioneye.com/php/jackh:yii2-admin/dev-master/badge.png)](https://www.versioneye.com/php/mdmsoft:yii2-admin/dev-master)
+[![HHVM Status](https://img.shields.io/hhvm/jackh/yii2-admin.svg)](http://hhvm.h4cc.de/package/mdmsoft/yii2-admin)
+[![Code Climate](https://img.shields.io/codeclimate/github/jackh/yii2-admin.svg)](https://codeclimate.com/github/mdmsoft/yii2-admin)
 
 Documentation
 -------------
-> **Important: If you install version 3.x, please see [this readme](https://github.com/jackhsoft/yii2-admin/blob/3.master/README.md#upgrade-from-2x).**
+> **Important: If you install version 3.x, please see [this readme](https://github.com/jackh/yii2-admin/blob/3.master/README.md#upgrade-from-2x).**
 
 
 - [Change Log](CHANGELOG.md).
 - [Authorization Guide](http://www.yiiframework.com/doc-2.0/guide-security-authorization.html). Important, read this first before you continue.
 - [Basic Usage](docs/guide/basic-usage.md).
 - [Using Menu](docs/guide/using-menu.md).
-- [Api](https://jackhsoft.github.io/yii2-admin/index.html).
+- [Api](https://jackh.github.io/yii2-admin/index.html).
 
 Installation
 ------------
@@ -30,28 +30,28 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require jackhsoft/yii2-admin "~1.0"
+php composer.phar require jackh/yii2-admin "~1.0"
 or
-php composer.phar require jackhsoft/yii2-admin "~2.0"
+php composer.phar require jackh/yii2-admin "~2.0"
 ```
 
 or for the dev-master
 
 ```
-php composer.phar require jackhsoft/yii2-admin "2.x-dev"
+php composer.phar require jackh/yii2-admin "2.x-dev"
 ```
 
 Or, you may add
 
 ```
-"jackhsoft/yii2-admin": "~2.0"
+"jackh/yii2-admin": "~2.0"
 ```
 
 to the require section of your `composer.json` file and execute `php composer.phar update`.
 
 ### Install From the Archive
 
-Download the latest release from here [releases](https://github.com/jackhsoft/yii2-admin/releases), then extract it to your project.
+Download the latest release from here [releases](https://github.com/jackh/yii2-admin/releases), then extract it to your project.
 In your application config, add the path alias for this extension.
 
 ```php
